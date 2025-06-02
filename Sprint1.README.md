@@ -211,6 +211,63 @@ Analyzing an algorithm is a key aspect of the Design and Analysis of Algorithm (
 **Summary:**  
 Analyzing an algorithm involves understanding its logic, determining its time and space complexity using mathematical and empirical methods, and expressing its efficiency using asymptotic notations. This helps in selecting the most suitable algorithm for a problem in terms of performance and resource utilization.
 
+## Time Complexity and Space Complexity (in terms of Design and Analysis of Algorithm)
+
+Understanding **time complexity** and **space complexity** is essential in the Design and Analysis of Algorithm (DAA) subject. These concepts help evaluate the efficiency of algorithms in terms of resource usage.
+
+---
+
+### Time Complexity
+
+- **Definition:**  
+  Time complexity measures the amount of time an algorithm takes to complete as a function of the size of its input (usually denoted as 'n').
+
+- **Purpose:**  
+  It helps predict how the running time increases as the input size grows, allowing comparison between different algorithms.
+
+- **Asymptotic Notations:**  
+  - **Big O (O):** Upper bound (worst-case scenario)
+  - **Omega (Ω):** Lower bound (best-case scenario)
+  - **Theta (Θ):** Tight bound (average/exact case)
+
+- **Example:**  
+  - Linear Search: O(n)
+  - Binary Search: O(log n)
+  - Bubble Sort: O(n²)
+
+---
+
+### Space Complexity
+
+- **Definition:**  
+  Space complexity measures the total amount of memory an algorithm needs to run to completion, as a function of input size.
+
+- **Components:**  
+  - **Input Space:** Memory required to store the input data.
+  - **Auxiliary Space:** Extra memory used by the algorithm (variables, data structures, recursion stack, etc.).
+
+- **Example:**  
+  - Linear Search: O(1) (no extra space)
+  - Merge Sort: O(n) (extra space for merging)
+
+---
+
+### Frequency Count Method
+
+- **Definition:**  
+  The frequency count method is a technique used to determine the time complexity of an algorithm by counting the number of times each basic operation is executed.
+
+- **Steps:**
+  1. Identify the basic operation (e.g., comparison, assignment).
+  2. Count how many times this operation is performed as a function of input size (n).
+  3. Express the total count as a mathematical function of n.
+  4. Use asymptotic notation to describe the growth rate.
+
+- **Example:**  
+  For a simple loop:
+
+
+
 
 
 
