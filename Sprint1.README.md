@@ -446,3 +446,73 @@ Here are the most common classes of functions, listed from most efficient (grows
 
 **Summary:**  
 Comparing classes of functions helps in selecting the most efficient algorithm for a problem. Algorithms with lower time complexity are more scalable and practical for large inputs, while those with higher complexity are only suitable for small input sizes or when no better solution exists.
+
+## Asymptotic Notations in Design and Analysis of Algorithm
+
+Asymptotic notations are mathematical tools used in the Design and Analysis of Algorithm (DAA) to describe the running time or space requirements of an algorithm as the input size grows towards infinity. They help in comparing the efficiency of algorithms by focusing on their growth rates, ignoring machine-dependent constants and lower-order terms.
+
+---
+
+### Why Use Asymptotic Notations?
+
+- To provide a standard way to express the efficiency of algorithms.
+- To compare algorithms independently of hardware, programming language, or implementation details.
+- To focus on the dominant factors affecting performance as input size increases.
+
+---
+
+### Types of Asymptotic Notations
+
+#### 1. Big O Notation (O)
+
+- **Definition:** Describes the upper bound of an algorithm’s running time. It represents the worst-case scenario.
+- **Usage:** Ensures that the algorithm will not take more time than the specified bound for large input sizes.
+- **Example:**  
+  - Linear Search: O(n)
+  - Bubble Sort: O(n²)
+
+#### 2. Omega Notation (Ω)
+
+- **Definition:** Describes the lower bound of an algorithm’s running time. It represents the best-case scenario.
+- **Usage:** Guarantees that the algorithm will take at least the specified time for large input sizes.
+- **Example:**  
+  - Linear Search: Ω(1) (if the element is at the first position)
+
+#### 3. Theta Notation (Θ)
+
+- **Definition:** Describes the tight bound of an algorithm’s running time. It represents both the upper and lower bounds (average/exact case).
+- **Usage:** Indicates that the running time grows exactly at the specified rate for large input sizes.
+- **Example:**  
+  - Linear Search: Θ(n) (on average, the element is in the middle)
+
+---
+
+### Graphical Representation
+
+- **O(g(n))**: The function f(n) will not grow faster than g(n) for large n.
+- **Ω(g(n))**: The function f(n) will not grow slower than g(n) for large n.
+- **Θ(g(n))**: The function f(n) grows at the same rate as g(n) for large n.
+
+---
+
+### Summary Table
+
+| Notation | Represents         | Scenario      | Example         |
+|----------|--------------------|--------------|-----------------|
+| O        | Upper bound        | Worst case   | O(n²)           |
+| Ω        | Lower bound        | Best case    | Ω(1)            |
+| Θ        | Tight/Exact bound  | Average case | Θ(n log n)      |
+
+---
+
+### Key Points
+
+- Asymptotic notations help in analyzing and comparing algorithms based on their growth rates.
+- **Big O** is most commonly used for worst-case analysis.
+- **Omega** is used for best-case analysis.
+- **Theta** is used when the upper and lower bounds are the same.
+
+---
+
+**Summary:**  
+Asymptotic notations (O, Ω, Θ) provide a mathematical framework to describe the efficiency of algorithms, allowing for objective comparison and selection of the most suitable algorithm for a given problem.
