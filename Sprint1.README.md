@@ -266,16 +266,18 @@ Understanding **time complexity** and **space complexity** is essential in the D
 - **Example:**  
   For a simple loop:
 
+```
+For i = 1 to n do
+   // Basic operation
+End For
+```
 
+- **Frequency Count:**  
+  - Basic operation inside the loop: 1 time per iteration
+  - Total for loop: n times
+  - Time Complexity: O(n)
 
-
-
-
-
-
-
-
-
+---
 
 ## Types of Time Functions and Classes of Functions (in Design and Analysis of Algorithm)
 
@@ -584,6 +586,80 @@ Linear Search is a simple searching algorithm that checks each element in a list
 **Key Points:**
 - Linear Search is simple but inefficient for large datasets.
 - Best case is very fast, but average and worst cases are slow compared to more advanced algorithms like Binary Search (for sorted data).
+
+## Binary Search Tree: Best, Worst, and Average Case Analysis
+
+A **Binary Search Tree (BST)** is a binary tree data structure where each node has at most two children, and for every node:
+- All elements in the left subtree are less than the node.
+- All elements in the right subtree are greater than the node.
+
+BSTs are commonly used for searching, insertion, and deletion operations.
+
+---
+
+### Best Case
+
+- **Scenario:**  
+  The tree is perfectly balanced, or the target element is found at the root.
+- **Best Case Time Complexity:**  
+  **O(1)** (if the element is at the root)  
+  **O(log n)** (if the tree is balanced and the element is not at the root)
+- **Explanation:**  
+  In a balanced BST, the height is log₂n, so the search path is minimized.
+
+---
+
+### Worst Case
+
+- **Scenario:**  
+  The tree is completely unbalanced (resembles a linked list), or the target element is not present.
+- **Worst Case Time Complexity:**  
+  **O(n)**  
+  All nodes may need to be checked if the tree is skewed (all nodes have only left or only right child).
+- **Explanation:**  
+  In the worst case, the height of the tree is n (for n nodes).
+
+---
+
+### Average Case
+
+- **Scenario:**  
+  The tree is randomly constructed (neither perfectly balanced nor completely skewed).
+- **Average Case Time Complexity:**  
+  **O(log n)**
+- **Explanation:**  
+  On average, the height of a randomly built BST is proportional to log n, so search, insertion, and deletion take O(log n) time.
+
+---
+
+### Minimum and Maximum Worst Case
+
+- **Minimum Worst Case:**  
+  - **O(log n)**  
+    Occurs when the BST is perfectly balanced. This is the best possible scenario for the worst case.
+- **Maximum Worst Case:**  
+  - **O(n)**  
+    Occurs when the BST is completely unbalanced (all nodes in a single line).
+
+---
+
+### Summary Table
+
+| Case         | Scenario                                 | Comparisons Needed      | Time Complexity |
+|--------------|------------------------------------------|------------------------|-----------------|
+| Best         | Element at root                          | 1                      | O(1)            |
+| Best         | Balanced tree                            | log₂n                  | O(log n)        |
+| Worst        | Skewed tree or not present               | n                      | O(n)            |
+| Average      | Randomly built BST                       | ~log₂n                 | O(log n)        |
+| Min. Worst   | Perfectly balanced BST                   | log₂n                  | O(log n)        |
+| Max. Worst   | Completely unbalanced BST (linked list)  | n                      | O(n)            |
+
+---
+
+**Key Points:**
+- BST performance depends on its shape (balance).
+- Operations are fastest in balanced trees and slowest in skewed trees.
+- Self-balancing BSTs (like AVL or Red-Black Trees) guarantee O(log n) time for all operations in the worst case.
 
 
 
