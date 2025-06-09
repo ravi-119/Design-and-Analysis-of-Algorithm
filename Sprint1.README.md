@@ -516,3 +516,74 @@ Asymptotic notations are mathematical tools used in the Design and Analysis of A
 
 **Summary:**  
 Asymptotic notations (O, Ω, Θ) provide a mathematical framework to describe the efficiency of algorithms, allowing for objective comparison and selection of the most suitable algorithm for a given problem.
+
+
+
+
+
+
+
+
+
+
+
+### Best, Worst and Average Case Analysis 
+### Linaer Search
+### Binary Search Tree
+
+## Linear Search: Best, Worst, and Average Case Analysis
+
+Linear Search is a simple searching algorithm that checks each element in a list sequentially until the desired element is found or the list ends.
+
+---
+
+### Best Case
+
+- **Scenario:**  
+  The target element is present at the very first position of the array.
+
+- **Best Case Time Complexity:**  
+  **O(1)** (Constant Time)  
+  Only one comparison is needed.
+
+---
+
+### Worst Case
+
+- **Scenario:**  
+  The target element is either at the last position of the array or not present at all.
+
+- **Worst Case Time Complexity:**  
+  **O(n)** (Linear Time)  
+  All n elements must be checked.
+
+---
+
+### Average Case
+
+- **Scenario:**  
+  The target element is equally likely to be at any position in the array, or may not be present.
+
+- **Average Case Time Complexity:**  
+  **O(n)** (Linear Time)  
+  On average, (n+1)/2 comparisons are needed if the element is present.  
+  If not present, n comparisons are needed.
+
+---
+
+### Summary Table
+
+| Case        | Scenario                                | Comparisons Needed | Time Complexity |
+|-------------|-----------------------------------------|-------------------|-----------------|
+| Best        | Element at first position               | 1                 | O(1)            |
+| Worst       | Element at last position or not present | n                 | O(n)            |
+| Average     | Element at random position              | (n+1)/2           | O(n)            |
+
+---
+
+**Key Points:**
+- Linear Search is simple but inefficient for large datasets.
+- Best case is very fast, but average and worst cases are slow compared to more advanced algorithms like Binary Search (for sorted data).
+
+
+
