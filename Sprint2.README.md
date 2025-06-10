@@ -60,3 +60,59 @@ Common algorithmic strategies include:
 
 **Summary:**  
 A strategy in DAA is a general approach to problem-solving. Divide and conquer is a powerful strategy that breaks problems into smaller parts, solves them independently, and combines their results. It is efficient, supports parallelism, and is the basis for many fundamental algorithms.
+
+---
+
+## What is a Recurrence Relation?
+
+In the context of Design and Analysis of Algorithm (DAA), a **recurrence relation** is an equation or formula that defines a sequence of values, where each term is expressed as a function of its preceding terms. Recurrence relations are commonly used to describe the running time (time complexity) of recursive algorithms.
+
+- **Purpose:**  
+  Recurrence relations help us mathematically model and analyze the performance of recursive algorithms by expressing the total work done in terms of smaller subproblems.
+
+- **Example Use:**  
+  If an algorithm solves a problem of size `n` by recursively solving a smaller problem (like size `n-1`), the time taken can be described using a recurrence relation.
+
+---
+
+## Example: Recurrence Relation T(n) = T(n-1) + 1
+
+This is a simple recurrence relation often seen in algorithms that reduce the problem size by 1 at each step (such as linear recursion).
+
+- **Meaning:**  
+  The time to solve a problem of size `n` (`T(n)`) is equal to the time to solve a problem of size `n-1` (`T(n-1)`) plus a constant amount of work (1 unit).
+
+- **Typical Scenario:**  
+  This relation appears in algorithms like:
+  - Simple recursive functions that process one element at a time (e.g., finding the maximum element in an array recursively).
+  - Linear search implemented recursively.
+
+- **Solving the Recurrence:**
+  - Expand the relation:
+    - T(n) = T(n-1) + 1
+    - T(n-1) = T(n-2) + 1
+    - ...
+    - T(1) = T(0) + 1
+  - Substitute back:
+    - T(n) = T(n-1) + 1
+           = [T(n-2) + 1] + 1
+           = T(n-2) + 2
+           = ...
+           = T(0) + n
+  - If T(0) = c (some constant), then:
+    - T(n) = c + n
+
+- **Time Complexity:**  
+  The solution is **O(n)**, meaning the algorithm takes linear time.
+
+---
+
+**Summary:**  
+A recurrence relation expresses the running time of a recursive algorithm in terms of smaller inputs. The relation T(n) = T(n-1) + 1 describes algorithms that reduce the problem size by 1 at each step, leading to a linear time complexity O(n).
+
+
+
+
+
+
+
