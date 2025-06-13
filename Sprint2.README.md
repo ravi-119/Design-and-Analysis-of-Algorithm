@@ -116,3 +116,248 @@ A recurrence relation expresses the running time of a recursive algorithm in ter
 
 
 
+
+## Recurrence Relation for Decreasing Functions
+
+In the Design and Analysis of Algorithm (DAA), a **recurrence relation for decreasing functions** describes the running time of algorithms that solve a problem by reducing its size at each step, typically by subtracting a constant value (often 1) from the input size.
+
+---
+
+### General Form
+
+The general recurrence relation for such algorithms is:
+
+T(n) = T(n - k) + f(n)
+
+- **T(n):** Time to solve a problem of size n.
+- **k:** The amount by which the problem size decreases at each step (often k = 1).
+- **f(n):** The amount of work done at each step (could be a constant or a function of n).
+
+---
+
+### Common Example
+
+For most simple recursive algorithms that decrease the problem size by 1 and do a constant amount of work at each step:
+
+T(n) = T(n - 1) + c
+
+where **c** is a constant.
+
+---
+
+### Solution
+
+By expanding the recurrence:
+- T(n) = T(n-1) + c  
+- T(n-1) = T(n-2) + c  
+- ...  
+- T(1) = T(0) + c  
+
+Adding up, we get:
+- T(n) = T(0) + n * c
+
+If T(0) is a constant, the overall time complexity is **O(n)**.
+
+---
+
+### Applications
+
+- **Linear Search (recursive)**
+- **Finding maximum/minimum in an array recursively**
+- **Simple counting problems**
+
+---
+
+**Summary:**  
+Recurrence relations for decreasing functions model algorithms that reduce the problem size by a fixed amount at each step. They typically lead to linear or arithmetic time complexity, depending on the amount of work done at each
+
+## Master Theorem for Decreasing Functions and General Form
+
+The **Master Theorem** is a tool used to determine the time complexity of recurrence relations, especially for divide and conquer algorithms. However, for **decreasing functions** (where the problem size reduces by subtraction, not division), the Master Theorem does **not** directly apply.
+
+---
+
+### General Form for Decreasing Functions
+
+A typical recurrence relation for decreasing functions is:
+
+T(n) = T(n - k) + f(n)
+
+- **k** is a constant (often 1).
+- **f(n)** is the work done at each step (could be constant or a function of n).
+
+---
+
+### Solution Approach
+
+To solve such recurrences, we use **iteration (expansion)** rather than the Master Theorem:
+
+#### Example 1: Constant Work
+
+T(n) = T(n - 1) + c
+
+- Expanding:
+  - T(n) = T(n-1) + c
+  - T(n-1) = T(n-2) + c
+  - ...
+  - T(1) = T(0) + c
+- Summing up:
+  - T(n) = T(0) + n * c
+- **Time Complexity:** O(n)
+
+#### Example 2: Linear Work
+
+T(n) = T(n - 1) + n
+
+- Expanding:
+  - T(n) = T(n-1) + n
+  - T(n-1) = T(n-2) + (n-1)
+  - ...
+  - T(1) = T(0) + 1
+- Summing up:
+  - T(n) = T(0) + 1 + 2 + ... + n = T(0) + n(n+1)/2
+- **Time Complexity:** O(n²)
+
+---
+
+### Key Point
+
+- The **Master Theorem** is used for recurrences of the form:  
+  `T(n) = aT(n/b) + f(n)` (where the problem size is divided, not subtracted).
+- For **decreasing functions** (subtraction), use **iteration/expansion** to solve the recurrence.
+
+---
+
+**Summary:**  
+The Master Theorem does not apply to decreasing function recurrences. Instead, solve them by expanding the recurrence and summing the work at each step. The general form is `T(n) = T(n-k) + f(n)`, and the solution depends on the nature
+
+
+
+
+
+
+
+## Recurrence Relation for Dividing Functions
+
+In the Design and Analysis of Algorithm (DAA), a **recurrence relation for dividing functions** describes the running time of algorithms that solve a problem by dividing it into smaller subproblems, typically by reducing the problem size by a constant factor (such as half) at each step. This is common in divide and conquer algorithms.
+
+---
+
+### General Form
+
+The general recurrence relation for dividing functions is:
+
+T(n) = a * T(n / b) + f(n)
+
+- **T(n):** Time to solve a problem of size n.
+- **a:** Number of subproblems at each step.
+- **n / b:** Size of each subproblem (problem size is divided by b).
+- **f(n):** The amount of work done outside the recursive calls (such as dividing and combining).
+
+---
+
+### Examples
+
+- **Binary Search:**  
+  T(n) = T(n/2) + c  
+  (Divides the array into two halves each time)
+
+- **Merge Sort:**  
+  T(n) = 2T(n/2) + O(n)  
+  (Divides the array into two halves and merges them)
+
+- **Strassen’s Matrix Multiplication:**  
+  T(n) = 7T(n/2) + O(n²)
+
+---
+
+### Solution Using Master Theorem
+
+The **Master Theorem** provides a direct way to find the time complexity for recurrences of this form:
+
+T(n) = a * T(n / b) + f(n)
+
+- Compare f(n) with n^log_b(a):
+  - If f(n) = O(n^c) where c < log_b(a): T(n) = Θ(n^log_b(a))
+  - If f(n) = Θ(n^c) where c = log_b(a): T(n) = Θ(n^c * log n)
+  - If f(n) = Ω(n^c) where c > log_b(a): T(n) = Θ(f(n))
+
+---
+
+**Summary:**  
+Recurrence relations for dividing functions model algorithms that break problems into smaller subproblems by division. Their general form is `T(n) = a * T(n / b) + f(n)`, and their time complexity can be efficiently determined using the Master
+
+
+
+
+
+
+
+
+
+
+
+## Master Theorem for Dividing Functions
+
+The **Master Theorem** is a powerful tool in the Design and Analysis of Algorithm (DAA) for determining the time complexity of divide and conquer algorithms. It provides a direct way to solve recurrence relations where a problem is divided into smaller subproblems of equal size.
+
+---
+
+### General Form of Recurrence for Dividing Functions
+
+The Master Theorem applies to recurrences of the form:
+
+T(n) = a * T(n / b) + f(n)
+
+Where:
+- **T(n):** Time to solve a problem of size n.
+- **a:** Number of subproblems at each step.
+- **n / b:** Size of each subproblem (problem size is divided by b).
+- **f(n):** Work done outside the recursive calls (e.g., dividing, combining).
+
+---
+
+### Master Theorem Statement
+
+Let **T(n) = a * T(n / b) + f(n)**, where:
+- **a ≥ 1** and **b > 1** are constants,
+- **f(n)** is an asymptotically positive function.
+
+Then:
+
+1. **If** f(n) = O(n^c) where c < log_b(a):  
+   **T(n) = Θ(n^log_b(a))**
+
+2. **If** f(n) = Θ(n^c) where c = log_b(a):  
+   **T(n) = Θ(n^c * log n)**
+
+3. **If** f(n) = Ω(n^c) where c > log_b(a), and if a * f(n/b) ≤ k * f(n) for some k < 1 and sufficiently large n:  
+   **T(n) = Θ(f(n))**
+
+---
+
+### How to Use the Master Theorem
+
+1. Identify **a**, **b**, and **f(n)** in your recurrence.
+2. Compute **log_b(a)**.
+3. Compare **f(n)** to **n^log_b(a)**.
+4. Apply the appropriate case from the theorem.
+
+---
+
+### Examples
+
+- **Merge Sort:**  
+  T(n) = 2T(n/2) + O(n)  
+  Here, a = 2, b = 2, f(n) = O(n), log_2(2) = 1  
+  f(n) = Θ(n^1) ⇒ Case 2 ⇒ T(n) = Θ(n log n)
+
+- **Binary Search:**  
+  T(n) = T(n/2) + O(1)  
+  a = 1, b = 2, f(n) = O(1), log_2(1) = 0  
+  f(n) = Θ(n^0) ⇒ Case 2 ⇒ T(n) = Θ(log n)
+
+---
+
+**Summary:**  
+The Master Theorem gives a quick and systematic way to determine the time complexity of divide and conquer algorithms with recurrences of the form `T(n) = a * T(n / b) + f(n)`. It is widely used for analyzing algorithms like Merge Sort, Binary Search, and
